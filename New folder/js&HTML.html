@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Rollover</title>
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+	/*---------------------------------------------------------------------------------------------------------------*/
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+<body>
+	<div style="text-align:center">
+	<h1>Rollover Images</h1>
+        <p><b>Move your mouse over an image to change it and back out of the image to restore the original image.</b></p>
+        <img src="MR POPEYE.png" id="pink" onmouseover="newP1()" onmouseout="oldP1()" height="1000" width="1000">
+        <br>
+        <p>-------------------------------------------------------------------------------------------------------------</p>
+        <br>
+    </div>
+        <div class="slideshow-container">
+        	<div class="mySlides fade">
+        		<div class="numbertext">1 / 3</div>
+        		<img id="1" onmouseover="newP2()" onmouseout="oldP2()" src="MR POPEYE.png" style="width:100%">
+        		<div class="text">Caption One</div>
+        	</div>
+        	<div class="mySlides fade">
+        		<div class="numbertext">2 / 3</div>
+        		<img id="2" onmouseover="newP3()" onmouseout="oldP3()" src="black.png" style="width:100%">
+        		<div class="text">Caption Two</div>
+        	</div>
+        	<div class="mySlides fade">
+        		<div class="numbertext">3 / 3</div>
+        		<img id="3" onmouseover="newPicture()" onmouseout="oldPicture()" src="mrpopeye.png" style="width:100%">
+        		<div class="text">Caption Three</div>
+        	</div>
+        	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+        	<span class="dot" onclick="currentSlide(1)"></span> 
+        	<span class="dot" onclick="currentSlide(2)"></span> 
+        	<span class="dot" onclick="currentSlide(3)"></span> 
+
+        </div>
+<!-- ----------------------------------------------------------------------------------------------------------- -->
+<div style="text-align:center">
+  <h2>Image Gallery</h2>
+  <p>Click on the images below to open the image:</p>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img id="b"  src="black.png" alt="black" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img id="z" src="DSC_0313.jpg" alt="Zubair" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img id="u" src="FB_IMG_1557333378978.jpg" alt="Usman" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img id="p" onmouseover="newPi1()" onmouseout="oldPi1()" src="FB_IMG_1556613449595.jpg" alt="Paracha" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+		function newPi1() {
+		document.getElementById("b").src="FB_IMG_1557333378978.jpg";
+		document.getElementById("z").src="black.png";
+		document.getElementById("u").src="DSC_0313.jpg";
+}
+	function oldPi1() {
+		document.getElementById("b").src="black.png";
+		document.getElementById("z").src="DSC_0313.jpg";
+		document.getElementById("u").src="FB_IMG_1557333378978.jpg";
+}
+	/* ------------------------------------------------------------------------------------------------------------ */
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+/* ------------------------------------------------------------------------------------------------------------------------ */
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</script>
+
+</body>
+<script>
+	function newP1() {
+		document.getElementById("pink").src="DSC_0313.jpg";
+}
+	function oldP1() {
+		document.getElementById("pink").src="MR POPEYE.png";
+}
+/*1st picture*/
+	function newP2() {
+		document.getElementById("1").src="DSC_0313.jpg";
+}
+	function oldP2() {
+		document.getElementById("1").src="MR POPEYE.png";
+}
+/*2nd picture*/
+	function newP3() {
+		document.getElementById("2").src="FB_IMG_1556613449595.jpg";
+}
+	function oldP3() {
+		document.getElementById("2").src="black.png";
+}
+/*3rd picture*/
+	function newPicture() {
+		document.getElementById("3").src="FB_IMG_1557333378978.jpg";
+}
+	function oldPicture() {
+		document.getElementById("3").src="mrpopeye.png";
+}
+
+</script>
+</html>
